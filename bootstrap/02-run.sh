@@ -14,4 +14,4 @@ setvalue_and_uncomment() {
 
 # Set DEVICE_NAME by modifying the config file directly on the image filesystem
 echo "Setting DEVICE_NAME..."
-setvalue_and_uncomment DEVICE_NAME ${RASPOTIFY_NAME} ${ROOTFS_DIR}/etc/default/raspotify
+setvalue_and_uncomment DEVICE_NAME "${RASPOTIFY_NAME}" ${ROOTFS_DIR}/etc/default/raspotify

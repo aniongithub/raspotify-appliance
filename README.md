@@ -15,6 +15,7 @@ A repository that shows how to use [pi-bootstrap](https://github.com/aniongithub
 
 | Name                | Description                                                  |
 | ------------------- | ------------------------------------------------------------ |
+| **DEVICE_NAME**     | The device name that will show up the Spotify Connect menu. Defaults to the name of the repository you created in step 1 |
 | **IMAGE_NAME**      | This is the name of the generated image. Defaults to the name of the repository you created in step 1 |
 | **FIRST_USER**      | The username of the first user on the generated image. Defaults to *pi* |
 | **FIRST_USER_PASS** | The password for the first user on the generated image. Defaults to *raspberry* |
@@ -23,7 +24,6 @@ A repository that shows how to use [pi-bootstrap](https://github.com/aniongithub
 | **WPA_COUNTRY**     | Two-character ISO-3166-1 alpha-2 country code for your country. *Not setting this will keep Wi-Fi disabled via rfkill* |
 | **WPA_SSID**        | SSID of your Wi-Fi network, if you want to enable Wi-Fi connectivity. *Not setting this will keep Wi-Fi disabled via rfkill* |
 | **WPA_PASSPHRASE**  | Passphrase of your Wi-Fi network, if you want to enable Wi-Fi connectivity. *Not setting this will keep Wi-Fi disabled via rfkill* |
-| **DEVICE_NAME**     | The device name that will show up the Spotify Connect menu. Defaults to *raspotify-appliance* |
 
 4. To build an image for testing, navigate to ![image-20210416232008223](media/image-20210416232008223.png)and select the ![image-20210416232050305](media/image-20210416232050305.png)workflow. You can then pick the branch want to build
    ![image-20210416232231819](media/image-20210416232231819.png)
