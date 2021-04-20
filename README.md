@@ -2,6 +2,7 @@
 A repository that shows how to use [pi-bootstrap](https://github.com/aniongithub/pi-bootstrap) and Github Actions to create a ready-to-use [raspotify](https://github.com/dtcooper/raspotify) image that includes connectivity to your home Wi-Fi, custom packages and build steps without opening a terminal or any manual setup. You can do all of this directly within the Github UI, which significantly lowers the barrier of entry for novice users, who don't need to understand a lot of the technical details.
 
 Youtube video explaining the what, why and how.
+
 [![Bootstrapping the Raspberry Pi using GitHub Actions](http://img.youtube.com/vi/Lc6wvHgMYH4/0.jpg)](http://www.youtube.com/watch?v=Lc6wvHgMYH4 "Bootstrapping the Raspberry Pi using GitHub Actions ")
 
 ## Github Actions Usage
