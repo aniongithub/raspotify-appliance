@@ -3,6 +3,9 @@ name: Manual
 on: 
   workflow_dispatch:
     inputs:
+      device_name:
+        description: "The device name that Spotify Connect will display"
+        required: true
       image_name:
         description: "Image name"
         required: true
@@ -50,19 +53,21 @@ jobs:
       
       - name: Build
         env:
-          INPUT_IMAGE_NAME: ${{ github.event.inputs.image_name }}
-          INPUT_HOSTNAME: ${{ github.event.inputs.host_name }}
-          INPUT_FIRST_USER: ${{ github.event.inputs.first_user }}
-          INPUT_FIRST_USERPASS: ${{ github.event.inputs.first_user_pass }}
-          INPUT_SSH_ENABLED: ${{ github.event.inputs.ssh_enabled }}
-          INPUT_WPA_SSID: ${{ github.event.inputs.wpa_ssid }}
-          INPUT_WPA_PASSPHRASE: ${{ github.event.inputs.wpa_passphrase }}
-          INPUT_WPA_COUNTRY: ${{ github.event.inputs.wpa_country }}
+          INPUT_DEVICE_NAME: "${{ github.event.inputs.device_name }}"
+          INPUT_IMAGE_NAME: "${{ github.event.inputs.image_name }}"
+          INPUT_HOSTNAME: "${{ github.event.inputs.host_name }}"
+          INPUT_FIRST_USER: "${{ github.event.inputs.first_user }}"
+          INPUT_FIRST_USERPASS: "${{ github.event.inputs.first_user_pass }}"
+          INPUT_SSH_ENABLED: "${{ github.event.inputs.ssh_enabled }}"
+          INPUT_WPA_SSID: "${{ github.event.inputs.wpa_ssid }}"
+          INPUT_WPA_PASSPHRASE: "${{ github.event.inputs.wpa_passphrase }}"
+          INPUT_WPA_COUNTRY: "${{ github.event.inputs.wpa_country }}"
 
         run: |
           pushd pi-gen
           trap "popd; exit" INT TERM EXIT
           ./build-docker.sh -c ../config \
+            DEVICE_NAME="${INPUT_DEVICE_NAME}" \
             IMAGE_NAME="${INPUT_IMAGE_NAME}" \
             HOSTNAME="${DFAULT_HOSTNAME}" \
             FIRST_USER="${INPUT_FIRST_USER}" \

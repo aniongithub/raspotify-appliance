@@ -25,6 +25,9 @@ jobs:
       
       - name: Build
         env:
+          SECRET_DEVICE_NAME: ${{ secrets.IMAGE_NAME }}
+          DEFAULT_DEVICE_NAME: ${{ github.event.repository.name }}
+
           SECRET_IMAGE_NAME: ${{ secrets.IMAGE_NAME }}
           DEFAULT_IMAGE_NAME: ${{ github.event.repository.name }}
 
@@ -48,6 +51,7 @@ jobs:
           pushd pi-gen
           trap "popd; exit" INT TERM EXIT
           ./build-docker.sh -c ../config \
+            DEVICE_NAME="${SECRET_DEVICE_NAME:-${DEFAULT_DEVICE_NAME}}" \
             IMAGE_NAME="${SECRET_IMAGE_NAME:-${DEFAULT_IMAGE_NAME}}" \
             HOSTNAME="${SECRET_HOSTNAME:-${DEFAULT_IMAGE_NAME}}" \
             FIRST_USER="${SECRET_FIRST_USER:-${DEFAULT_FIRST_USER}}" \

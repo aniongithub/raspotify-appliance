@@ -1,23 +1,17 @@
 #!/bin/bash -e
 
-# Add or remove any custom installation steps here.
-# This file shows how to run commands inside chroot,
-# which is equivalent to the raspberry pi terminal in
-# most cases
-
-# Example: Install Docker using default installation script
-# and perform post-install steps to not require
-# sudo for docker commands
-echo "Installing docker..."
+# Install raspotify using the utility script in chroot
+echo "Installing raspotify..."
 on_chroot << EOF
-curl -sSL get.docker.com | sh
-usermod -aG docker ${FIRST_USER_NAME}
+curl -sL https://dtcooper.github.io/raspotify/install.sh | sh
+
 EOF
 
-# Example: Install docker-compose
-echo "Installing docker-compose..."
-on_chroot << EOF
-pip3 install docker-compose
-# Ensure it's in PATH
-ln -sfn /home/${FIRST_USER_NAME}/.local/bin/docker-compose /usr/bin/docker-compose
-EOF
+# Function to let us modify key=value pairs in files
+setvalue_and_uncomment() {
+    sed -i "s/^[#]*\s*$1=.*/$1=\"$2\"/" $3
+}
+
+# Set DEVICE_NAME by modifying the config file directly on the image filesystem
+echo "Setting DEVICE_NAME..."
+setvalue_and_uncomment DEVICE_NAME "${RASPOTIFY_NAME}" ${ROOTFS_DIR}/etc/default/raspotify
