@@ -3,6 +3,9 @@ A repository that shows how to use [pi-bootstrap](https://github.com/aniongithub
 
 ## Github Actions Usage
 
+Youtube video explaining the what, why and how.
+[![Bootstrapping the Raspberry Pi using GitHub Actions](http://img.youtube.com/vi/Lc6wvHgMYH4/0.jpg)](http://www.youtube.com/watch?v=Lc6wvHgMYH4 "Bootstrapping the Raspberry Pi using GitHub Actions ")
+
 1. Click ![image-20210416222151898](media/image-20210416222151898.png)and create a new public/private repository in your account based on this template.
 
    :warning: *If you plan to use this repository to create a ready-to-use image that includes your Wi-Fi SSID, passphrase or other private information, it is recommended to create a private repository at this stage*
